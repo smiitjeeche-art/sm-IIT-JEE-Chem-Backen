@@ -78,6 +78,15 @@
 	
 	
 
+
+
+
+
+
+
+
+
+
 .register-btn{
   display:inline-block;
   padding:10px 16px;
@@ -99,6 +108,16 @@
 
 
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
   </style>
 </head>
 
@@ -113,7 +132,29 @@
 
       <input type="email" id="emailInput" placeholder="Enter your email" required />
 	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
 	    <p id="loginError" style="color:red; font-size:13px; margin-top:5px;"></p>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 
       <button onclick="login()">Login</button>
     </div>
@@ -128,6 +169,20 @@
 
 const SINGLE_LINK =
 "https://smiitjeeche-art.github.io/sm-IIT-JEE-Chem-Data/HTML/SM Chemistry 12 .html";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 async function login() {
   const email = document.getElementById("emailInput").value.trim().toLowerCase();
@@ -160,14 +215,39 @@ async function login() {
       document.getElementById("loginContainer").style.display = "none";
       document.getElementById("appContainer").style.display = "block";
       document.getElementById("viewer").src = SINGLE_LINK;
+
     } else {
-      errorBox.innerText = "Login failed. Try again.";
+      errorBox.innerHTML = `
+        Your E-Mail ID is not registered.<br><br>
+        <a href="https://gten-educational-platform.github.io/Class-12/email.html" target="_blank" class="register-btn">
+          Register Now
+        </a>
+      `;
     }
 
   } catch (err) {
     errorBox.innerText = "Server error. Try later.";
   }
-}
+} // ✅ VERY IMPORTANT — THIS WAS MISSING
+
+
+document.getElementById("emailInput").addEventListener("input", function() {
+  const errorBox = document.getElementById("loginError");
+  errorBox.innerHTML = ""; // 🔥 clears error + hides Register button
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // ✅ ADD HERE (RIGHT AFTER LOGIN FUNCTION)
 window.onload = async function() {
@@ -192,6 +272,11 @@ window.onload = async function() {
     localStorage.clear();
   }
 };
+
+
+
+
+
 
 
     // ------------------------------
